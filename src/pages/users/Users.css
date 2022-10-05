@@ -1,0 +1,11 @@
+.users__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.users__header h2 {
+  font-size: 32px;
+  font-weight: bold;
+}

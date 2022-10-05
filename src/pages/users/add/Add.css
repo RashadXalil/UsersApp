@@ -1,0 +1,21 @@
+.add__form {
+  width: 70%;
+  padding: 20px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.add__btn {
+  width: 50%;
+  background-color: blue !important;
+  color: white !important;
+  margin: 20px auto;
+}
+.add__form p {
+  font-size: 32px;
+}
+.add__form Input {
+  margin-bottom: 20px;
+}
