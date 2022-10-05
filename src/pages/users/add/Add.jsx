@@ -10,6 +10,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const Add = () => {
   let defaultDate = new Date()
   defaultDate.setDate(defaultDate.getDate() + 4)
@@ -17,6 +18,7 @@ const Add = () => {
   const [lastname, setLastname] = useState('')
   const [email, setEmail] = useState('')
   const [birthday, setBirthday] = useState(defaultDate)
+  const navigator = useNavigate()
   const addHandler = () => {
     axios
       .post('http://localhost:8080/users', {
@@ -28,8 +30,14 @@ const Add = () => {
       .then((res) => {
         if (res.status == 201) {
           toast.success('User Created !')
+          setInterval(() => {
+            if (res.status == 201) {
+              navigator('/users')
+            }
+          }, 2000)
+        } else {
+          toast.error('something went wrong !!!')
         }
-        console.log(res)
       })
   }
   return (
