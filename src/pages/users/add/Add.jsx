@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Add.css'
+import { Toaster, toast } from 'react-hot-toast'
 import {
   FormControl,
   FormLabel,
@@ -24,7 +25,12 @@ const Add = () => {
         email: email,
         birthday: birthday,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status == 201) {
+          toast.success('User Created !')
+        }
+        console.log(res)
+      })
   }
   return (
     <div className="add__form">
@@ -71,6 +77,7 @@ const Add = () => {
       <Button className="add__btn" onClick={addHandler}>
         Add
       </Button>
+      <Toaster />
     </div>
   )
 }

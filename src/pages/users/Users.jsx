@@ -14,6 +14,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import axios from 'axios'
+import { toast, Toaster } from 'react-hot-toast'
 const Users = () => {
   const [users, setUsers] = useState([])
 
@@ -22,6 +23,12 @@ const Users = () => {
       setUsers(res.data)
     })
   }, [])
+  const deleteHandler = (id) => {
+    axios.delete(`http://localhost:8080/users/${id}`).then((res) => {
+      setUsers(res.data)
+      toast.success('User Deleted !')
+    })
+  }
   return (
     <div>
       <div className="users__header">
@@ -54,7 +61,9 @@ const Users = () => {
                     <Button>Edit</Button>
                   </Td>
                   <Td>
-                    <Button>Delete</Button>
+                    <Button onClick={() => deleteHandler(user._id)}>
+                      Delete
+                    </Button>
                   </Td>
                 </Tr>
               )
@@ -62,6 +71,7 @@ const Users = () => {
           </Tbody>
         </Table>
       </TableContainer>
+      <Toaster />
     </div>
   )
 }
