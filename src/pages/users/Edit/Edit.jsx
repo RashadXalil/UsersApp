@@ -48,7 +48,7 @@ const Edit = () => {
       <FormControl>
         <FormLabel>First Name</FormLabel>
         <Input
-          type="email"
+          type="text"
           placeholder="firstname"
           value={firstname}
           onChange={(e) => {

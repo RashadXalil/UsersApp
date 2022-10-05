@@ -23,10 +23,13 @@ const Users = () => {
     })
   }, [])
   const deleteHandler = (id) => {
-    axios.delete(`http://localhost:8080/users/${id}`).then((res) => {
-      setUsers(res.data)
-      toast.success('User Deleted !')
-    })
+    const choise = confirm('are u sure ? ')
+    if (choise === true) {
+      axios.delete(`http://localhost:8080/users/${id}`).then((res) => {
+        setUsers(res.data)
+        toast.success('User Deleted !')
+      })
+    }
   }
   return (
     <div>

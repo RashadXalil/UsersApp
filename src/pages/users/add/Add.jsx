@@ -38,7 +38,7 @@ const Add = () => {
       <FormControl>
         <FormLabel>First Name</FormLabel>
         <Input
-          type="email"
+          type="text"
           placeholder="firstname"
           onChange={(e) => {
             setFirstname(e.target.value)
@@ -48,7 +48,7 @@ const Add = () => {
       <FormControl>
         <FormLabel>Last Name</FormLabel>
         <Input
-          type="email"
+          type="text"
           placeholder="lastname"
           onChange={(e) => {
             setLastname(e.target.value)
