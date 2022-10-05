@@ -54,6 +54,7 @@ const Edit = () => {
         <FormLabel>First Name</FormLabel>
         <Input
           type="text"
+          required
           placeholder="firstname"
           value={firstname}
           onChange={(e) => {
@@ -65,6 +66,7 @@ const Edit = () => {
         <FormLabel>Last Name</FormLabel>
         <Input
           value={lastname}
+          required
           type="text"
           placeholder="lastname"
           onChange={(e) => {
@@ -76,6 +78,7 @@ const Edit = () => {
         <FormLabel>Email</FormLabel>
         <Input
           type="email"
+          required
           value={email}
           placeholder="email"
           onChange={(e) => {

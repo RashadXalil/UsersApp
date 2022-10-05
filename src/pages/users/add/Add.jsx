@@ -47,6 +47,7 @@ const Add = () => {
         <FormLabel>First Name</FormLabel>
         <Input
           type="text"
+          required
           placeholder="firstname"
           onChange={(e) => {
             setFirstname(e.target.value)
@@ -57,6 +58,7 @@ const Add = () => {
         <FormLabel>Last Name</FormLabel>
         <Input
           type="text"
+          required
           placeholder="lastname"
           onChange={(e) => {
             setLastname(e.target.value)
@@ -67,6 +69,7 @@ const Add = () => {
         <FormLabel>Email</FormLabel>
         <Input
           type="email"
+          required
           placeholder="email"
           onChange={(e) => {
             setEmail(e.target.value)
@@ -77,6 +80,7 @@ const Add = () => {
         <FormLabel>Birthday</FormLabel>
         <Input
           type="date"
+          required
           onChange={(e) => {
             setBirthday(e.target.value)
           }}
