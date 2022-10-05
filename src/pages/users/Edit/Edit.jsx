@@ -11,7 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 const Edit = () => {
   let id = useParams()
   let defaultDate = new Date()
@@ -21,6 +21,7 @@ const Edit = () => {
   const [lastname, setLastname] = useState('')
   const [email, setEmail] = useState('')
   const [birthday, setBirthday] = useState(defaultDate)
+  const navigator = useNavigate()
   useEffect(() => {
     axios.get(`http://localhost:8080/users/${id.id}`).then((res) => {
       setFirstname(res.data.firstname)
@@ -38,8 +39,12 @@ const Edit = () => {
         email: email,
       })
       .then((res) => {
-        console.log(res)
-        toast.success('User Edited !')
+        if (res.status == 200) {
+          toast.success('User Edited !')
+          setTimeout(() => {
+            navigator('/users')
+          }, 1000)
+        }
       })
   }
   return (
