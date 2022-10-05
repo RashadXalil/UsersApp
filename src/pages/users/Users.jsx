@@ -17,7 +17,6 @@ import axios from 'axios'
 import { toast, Toaster } from 'react-hot-toast'
 const Users = () => {
   const [users, setUsers] = useState([])
-
   useEffect(() => {
     axios.get('http://localhost:8080/users').then((res) => {
       setUsers(res.data)
@@ -58,7 +57,7 @@ const Users = () => {
                     {moment(user.birthday).format('MMMM Do YYYY, h:mm:ss a')}
                   </Td>
                   <Td>
-                    <Button>Edit</Button>
+                    <Link to={`/${user._id}`}>Edit</Link>
                   </Td>
                   <Td>
                     <Button onClick={() => deleteHandler(user._id)}>
